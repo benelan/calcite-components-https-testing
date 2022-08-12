@@ -11,9 +11,9 @@ const options = {
 https.createServer(options, function (req, res) {
   res.writeHead(200, { 'content-type': 'text/html' })
   if (req.url === "/") {
-    fs.createReadStream('./dist/index.html').pipe(res)
+    fs.createReadStream('./public/index.html').pipe(res)
   }
   else if (req.url.includes("/auth")) {
-    fs.createReadStream('./dist/auth.html').pipe(res)
+    fs.createReadStream('./public/auth.html').pipe(res)
   }
 }).listen(8443);

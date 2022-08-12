@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <script type="module" src="/main.js"></script>
+
+    <!-- <script
+      type="module"
+      src="https://unpkg.com/@esri/calcite-components@1.0.0-beta.91/dist/calcite/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@esri/calcite-components@1.0.0-beta.91/dist/calcite/calcite.css"
+    /> -->
+  </head>
+  <style>
+    @keyframes onAutoFillStart {
+      from {
+        /**/
+      }
+      to {
+        /**/
+      }
+    }
+    @keyframes onAutoFillCancel {
+      from {
+        /**/
+      }
+      to {
+        /**/
+      }
+    }
+
+    input:autofill,
+    input:-webkit-autofill,
+    calcite-input:autofill,
+    calcite-input:-webkit-autofill {
+      animation-name: onAutoFillStart;
+    }
+    input:not:autofill,
+    input:not:-webkit-autofill,
+    calcite-input:not:autofill,
+    calcite-input:not:-webkit-autofill {
+      animation-name: onAutoFillCancel;
+    }
+  </style>
+  <body>
+    <p>
+      This page is to test browser autofill of username and password fields.
+      Complete the fields below and click submit. Choose to save the
+      username/password in your browser.
+    </p>
+
+    <form action="auth" method="GET">
+      <calcite-input
+        class="hidden-input"
+        type="text"
+        name="username"
+        placeholder="username"
+        autocomplete="username"
+      ></calcite-input>
+      <calcite-input
+        class="hidden-input"
+        type="password"
+        name="password"
+        placeholder=" password"
+        autocomplete="current-password"
+      ></calcite-input>
+      <button type="submit">submit</button>
+    </form>
+    <script>
+      document.addEventListener("calciteInternalHiddenInputChange", (event) =>
+        console.log("change event:", event)
+      );
+
+      document
+        .querySelectorAll(".hidden-input")
+        .forEach((input) =>
+          input.addEventListener("animationstart", (event) =>
+            console.log(event)
+          )
+        );
+    </script>
+  </body>
+</html>
