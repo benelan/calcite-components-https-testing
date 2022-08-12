@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "main": "server.js",
   "devDependencies": {
+    "nodemon": "^2.0.19",
     "rollup-plugin-copy": "^3.4.0",
     "vite": "^2.6.13"
   },
   "dependencies": {
-    "@esri/calcite-components": "^1.0.0-beta.91"
+    "@esri/calcite-components": "^1.0.0-beta.91",
+    "express": "^4.18.1"
   },
   "scripts": {
-    "link": "cd calcite-components && git fetch && git checkout benelan/5022-autofill-login && npm i && npm run build && npm link && cd .. && npm link @esri/calcite-components",
+    "link": "cd calcite-components && git fetch && git checkout $CC_BRANCH && npm i && npm run build && npm link && cd .. && npm link @esri/calcite-components",
     "postinstall": "git submodule update --init --recursive --remote",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "test": "npm i && npm run link && npm run build && npm start"
   }
 }

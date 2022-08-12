@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <script type="module" src="./main.js"></script>
   </head>
   <style>
     @keyframes onAutoFillStart {  from {/**/}  to {/**/}}
@@ -30,7 +31,6 @@
         <calcite-input class="hidden-input" type="password" name="password" placeholder=" password" autocomplete="current-password"></calcite-input>
       <button type="submit">submit</button>
     </form>
-    <script type="module" src="/main.js"></script>
     <script>
       document.addEventListener("calciteInternalHiddenInputChange", (event) =>
         console.log("change event:", event)
