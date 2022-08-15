@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "server.js",
   "devDependencies": {
-    "concurrently": "^7.3.0",
     "nodemon": "^2.0.19",
     "rollup-plugin-copy": "^3.4.0",
     "vite": "^2.6.13"
@@ -14,6 +13,8 @@
   },
   "scripts": {
     "link": "cd calcite-components && npm link && cd .. && npm link @esri/calcite-components",
+    "clean": "rm -rf ./dist ./node_modules ./calcite-components",
+    "install:clean": "npm run clean && npm install",
     "preinstall": "git submodule update --init --recursive --remote",
     "postinstall": "cd calcite-components && npm i",
     "start": "nodemon server.js",
