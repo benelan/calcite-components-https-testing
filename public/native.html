@@ -27,16 +27,11 @@
     }
 
     input:autofill,
-    input:-webkit-autofill,
-    calcite-input:autofill,
-    calcite-input:-webkit-autofill {
+    input:-webkit-autofill {
       animation-name: onAutoFillStart;
     }
-
     input:not:autofill,
-    input:not:-webkit-autofill,
-    calcite-input:not:autofill,
-    calcite-input:not:-webkit-autofill {
+    input:not:-webkit-autofill {
       animation-name: onAutoFillCancel;
     }
   </style>
@@ -48,22 +43,24 @@
     </p>
 
     <form action="auth.html" method="GET">
-      <calcite-input
+      <input
+        inert
         class="hidden-input"
         type="text"
         name="username"
         placeholder="username"
         autocomplete="username"
       >
-      </calcite-input>
-      <calcite-input
+      </input>
+      <input
+        inert
         class="hidden-input"
         type="password"
         name="password"
         placeholder=" password"
         autocomplete="current-password"
       >
-      </calcite-input>
+      </input>
       <button type="submit">submit</button>
     </form>
     <script>
@@ -76,7 +73,7 @@
         )
       );
 
-      // change the calcite-inputs to native inputs for the animationstart event listener
+      // change the inputs to native inputs for the animationstart event listener
       document
         .querySelectorAll(".hidden-input")
         .forEach((input) =>

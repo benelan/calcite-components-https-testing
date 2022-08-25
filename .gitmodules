@@ -1,4 +1,4 @@
 [submodule "calcite-components"]
 	path = calcite-components
 	url = https://github.com/Esri/calcite-components.git
-	branch = benelan/5022-autofill-login
+	branch = master
